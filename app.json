@@ -2,10 +2,16 @@
   "expo": {
     "name": "FaltaFilme",
     "slug": "faltaFilme",
+    "scheme": "faltafilme",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/faltafilme-icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-splash-screen"
+    ],
     "ios": {
       "supportsTablet": true
     },
