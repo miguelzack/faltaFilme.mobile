@@ -48,6 +48,7 @@ Aplicativo de um cinema para facilitar a compra online de ingressos, com interfa
 - Seguir o padrão de telas e componentes em pastas próprias, com `index.js` e `styles.js` quando houver estilos.
 - Todos os SVGs usados na interface devem ser componentes JavaScript reutilizáveis, seguindo o padrão de `src/assets/icons` da referência (componentes com `react-native-svg`).
 - Manter as rotas do Expo Router em `src/app`, conforme `AGENTS.md`; a implementação das telas fica em `src/screens`. Não copiar o navegador do projeto de referência.
+- Agrupar rotas por fluxo em diretórios de grupo do Expo Router: o acesso está em `src/app/(auth)/acesso.js`; login e cadastro pertencerão a esse grupo quando implementados. A abertura permanece na rota inicial `src/app/index.js`. Os grupos não alteram os caminhos públicos.
 - Assets exigidos pelos arquivos de configuração nativos, como o ícone PNG do aplicativo, continuam no formato exigido pelo Expo.
 
 ## Validação da interface

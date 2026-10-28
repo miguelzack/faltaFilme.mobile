@@ -30,6 +30,7 @@ Projeto acadêmico SENAI: aplicativo de um cinema para facilitar a compra de ing
 - Seguir a organização do projeto de referência faltaoque.Mobile, criando pastas por responsabilidade quando forem necessárias; telas e componentes ficam em pastas próprias, com `index.js` e `styles.js` quando aplicável.
 - Todo SVG usado na interface deve ser componente JavaScript, como os ícones em `src/assets/icons` do projeto de referência.
 - Usar `src/app` para rotas do Expo Router e `src/screens` para telas, respeitando as regras deste projeto.
+- Rotas agrupadas por fluxo: `src/app/(auth)/acesso.js` atende `/acesso`; a abertura continua em `src/app/index.js`. Login e cadastro ainda não foram implementados.
 
 ## Telas e tema
 - Abertura leva automaticamente à tela de acesso após 2 segundos; as ações de login e cadastro exibem aviso temporário até as telas serem implementadas.
