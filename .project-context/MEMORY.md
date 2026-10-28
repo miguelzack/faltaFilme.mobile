@@ -10,11 +10,12 @@ Projeto acadêmico SENAI: aplicativo de um cinema para facilitar a compra de ing
 - Em cartaz: filmes lançados nos últimos dois meses. Sessões: dia seguinte à data local; horários e salas simulados.
 - Preços: R$ 10,00 meia e R$ 20,00 inteira. Pagamento simulado.
 - Conta e dados locais não sincronizam entre dispositivos; AsyncStorage não é criptografado.
+- As mensagens da interface devem tratar os fluxos como uma experiência de cinema, sem citar AsyncStorage ou armazenamento no aparelho.
 - Prioridade inicial: configurar projeto, depois abertura, acesso, login e cadastro.
 
 ## Estado conhecido em 27/10/2026
 - Projeto Expo inicial em JavaScript; `package.json` informa Expo SDK 58.
-- Expo Router e Styled Components configurados. Telas Abertura e Acesso implementadas; login e cadastro ainda pendentes. AsyncStorage ainda não foi configurado.
+- Expo Router, Styled Components e AsyncStorage configurados. Telas Abertura, Acesso, Login e Cadastro implementadas; Home ainda pendente.
 - Figma acessível pelo conector; possui páginas de wireframes, componentes e design system.
 - A documentação do projeto é mantida na pasta versionada `.project-context`.
 
@@ -30,11 +31,15 @@ Projeto acadêmico SENAI: aplicativo de um cinema para facilitar a compra de ing
 - Seguir a organização do projeto de referência faltaoque.Mobile, criando pastas por responsabilidade quando forem necessárias; telas e componentes ficam em pastas próprias, com `index.js` e `styles.js` quando aplicável.
 - Todo SVG usado na interface deve ser componente JavaScript, como os ícones em `src/assets/icons` do projeto de referência.
 - Usar `src/app` para rotas do Expo Router e `src/screens` para telas, respeitando as regras deste projeto.
-- Rotas agrupadas por fluxo: `src/app/(auth)/acesso.js` atende `/acesso`; a abertura continua em `src/app/index.js`. Login e cadastro ainda não foram implementados.
+- Rotas de acesso, login e cadastro estão agrupadas em `src/app/(auth)`; a abertura continua em `src/app/index.js`.
 
 ## Telas e tema
-- Abertura leva automaticamente à tela de acesso após 2 segundos; as ações de login e cadastro exibem aviso temporário até as telas serem implementadas.
-- Tema em src/theme, com paleta e tipografia Montserrat do Figma; marca e botão principal em componentes reutilizáveis.
+- Abertura leva automaticamente à tela de acesso após 2 segundos. Cadastro e login usam contas locais em AsyncStorage; após entrar, uma mensagem informa que a Home ainda será implementada.
+- Cadastro valida nome, e-mail e senha com pelo menos 6 caracteres, e rejeita e-mails duplicados. A senha é guardada localmente no AsyncStorage conforme solicitado e o armazenamento não é criptografado.
+- No login, e-mail sem conta local e senha incorreta têm mensagens distintas, destacando o campo correspondente.
+- Login e cadastro mostram erros específicos com destaque nos campos e uma área de mensagens no topo, fora do espaço entre os botões; o campo de senha permite alternar a visibilidade e o ícone indica o estado.
+- Os avisos de login e cadastro têm animações suaves de entrada e saída e desaparecem automaticamente após cinco segundos.
+- Tema em src/theme, com paleta e tipografia Montserrat do Figma; marca, botão principal e botão de voltar são componentes reutilizáveis. O comportamento de navegação do botão de voltar é definido pela tela ou layout que o utiliza.
 
 ## Preferência de validação
 - Validar a interface sempre no celular Android conectado usando ADB; não utilizar navegador para validação visual. Se o dispositivo ou o app adequado não estiver disponível, informar o impedimento.

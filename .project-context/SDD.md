@@ -14,6 +14,7 @@ Aplicativo de um cinema para facilitar a compra online de ingressos, com interfa
 - TMDB como fonte das informações dos filmes; consultar sua documentação e configurar a credencial localmente quando a integração for implementada.
 - AsyncStorage para persistir localmente os demais dados que precisem de tratamento ou armazenamento no app, incluindo conta, login e senha, sessões, seleções, pedidos e histórico.
 - O app é local ao dispositivo: não há sincronização nem disponibilidade de assentos compartilhada entre aparelhos. AsyncStorage não é criptografado; o fluxo de pagamento é uma simulação.
+- Na interface, apresentar os fluxos como uma experiência de cinema; não expor detalhes de implementação, como AsyncStorage ou armazenamento neste aparelho.
 
 ## Funcionalidades e regras de negócio
 - Seguir telas, componentes e design system do Figma. O fluxo inclui abertura, acesso, login, cadastro, Home, busca, detalhes do filme, data, assentos, tipo de ingresso, pagamento, confirmação, pedidos e sobre o cinema.

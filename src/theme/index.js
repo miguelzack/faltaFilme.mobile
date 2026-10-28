@@ -1,6 +1,7 @@
 const colors = {
   background: '#07002F',
   surface: '#192240',
+  input: '#282734',
   primary: '#12D9A9',
   success: '#22B07D',
   warning: '#FF8700',
