@@ -15,7 +15,7 @@ Projeto acadêmico SENAI: aplicativo de um cinema para facilitar a compra de ing
 
 ## Estado conhecido em 27/10/2026
 - Projeto Expo inicial em JavaScript; `package.json` informa Expo SDK 58.
-- Expo Router, Styled Components e AsyncStorage configurados. Telas Abertura, Acesso, Login, Cadastro e Home implementadas; demais fluxos ainda pendentes.
+- Expo Router, Styled Components e AsyncStorage configurados. Telas Abertura, Acesso, Login, Cadastro, Home e Detalhes do filme implementadas; demais fluxos ainda pendentes.
 - Figma acessível pelo conector; possui páginas de wireframes, componentes e design system.
 - A documentação do projeto é mantida na pasta versionada `.project-context`.
 
@@ -41,9 +41,10 @@ Projeto acadêmico SENAI: aplicativo de um cinema para facilitar a compra de ing
 - Os avisos de login e cadastro têm animações suaves de entrada e saída e desaparecem automaticamente após cinco segundos.
 - Login e cadastro usam `KeyboardAwareScrollView` para manter o campo selecionado visível quando o teclado aparece. O `KeyboardProvider` fica no layout raiz; após adicionar o módulo nativo, builds de desenvolvimento existentes precisam ser refeitas.
 - Tema em src/theme, com paleta e tipografia Montserrat do Figma; marca, botão principal e botão de voltar são componentes reutilizáveis. O comportamento de navegação do botão de voltar é definido pela tela ou layout que o utiliza.
-- Home consulta `/3/discover/movie` do TMDB em português, usando a data primária de lançamento dos últimos dois meses calculados pela data local. O token de leitura v4 é configurado em `.env.local` como `EXPO_PUBLIC_TMDB_ACCESS_TOKEN` e enviado como Bearer; o arquivo é ignorado pelo Git, mas a variável é embutida no app e não é secreta. As telas de detalhes, busca, ingressos e sobre ainda não estão implementadas.
+- Home consulta `/3/discover/movie` do TMDB em português, usando a data primária de lançamento dos últimos dois meses calculados pela data local. O token de leitura v4 é configurado em `.env.local` como `EXPO_PUBLIC_TMDB_ACCESS_TOKEN` e enviado como Bearer; o arquivo é ignorado pelo Git, mas a variável é embutida no app e não é secreta. Busca, ingressos e sobre ainda não estão implementados.
+- Os filmes da Home abrem a tela de detalhes, que consulta o TMDB para ficha técnica, sinopse, elenco, direção e classificação brasileira quando disponível. A compra ainda indica que estará disponível em breve.
 - As seções da Home filtram por gênero o mesmo catálogo de até 15 filmes, ordenado pela popularidade do TMDB.
-- O carrossel de destaques da Home avança automaticamente a cada cinco segundos com transição de opacidade e também permite navegação manual.
+- O carrossel de destaques da Home avança automaticamente a cada cinco segundos com transição horizontal e permite navegação manual contínua nos dois sentidos.
 
 ## Preferência de validação
 - Validar a interface sempre no celular Android conectado usando ADB; não utilizar navegador para validação visual. Se o dispositivo ou o app adequado não estiver disponível, informar o impedimento.

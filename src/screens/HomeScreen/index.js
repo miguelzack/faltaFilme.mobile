@@ -1,4 +1,5 @@
 import {useCallback, useEffect, useState} from 'react';
+import {router} from 'expo-router';
 import {ActivityIndicator, Alert} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useTheme} from 'styled-components/native';
@@ -38,7 +39,9 @@ export default function HomeScreen() {
     }, [attempt]);
 
     const unavailable = useCallback((/** @type {string} */ name) => Alert.alert(name, 'Em breve.'), []);
-    const openMovie = useCallback(() => unavailable('Detalhes do filme'), [unavailable]);
+    const openMovie = useCallback((/** @type {import('../../services/movieService').Movie} */ movie) => {
+        router.push({pathname: '/filme/[id]', params: {id: String(movie.id)}});
+    }, []);
 
     return (<Root>
         <Scroll contentContainerStyle={{paddingTop: Math.max(insets.top, 24), paddingBottom: 32}}>
@@ -49,11 +52,11 @@ export default function HomeScreen() {
                 {loading ? <Center><ActivityIndicator size="large" color={theme.colors.primary}/><StatusText>Carregando
                     filmes...</StatusText></Center> : error ?
                     <Center><StatusText>{error}</StatusText><Retry accessibilityRole="button"
-                                                                             onPress={() => {
-                                                                                 setLoading(true);
-                                                                                 setError('');
-                                                                                 setAttempt((current) => current + 1);
-                                                                             }}><RetryText>Tentar
+                                                                   onPress={() => {
+                                                                       setLoading(true);
+                                                                       setError('');
+                                                                       setAttempt((current) => current + 1);
+                                                                   }}><RetryText>Tentar
                         novamente</RetryText></Retry></Center> : movies && movies.popular.length === 0 ?
                         <Center><StatusText>Nenhum filme em cartaz no
                             momento.</StatusText></Center> : movies && <>

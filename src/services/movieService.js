@@ -57,3 +57,18 @@ export async function getHomeMovies(signal) {
     const discovery = popular.filter((movie) => (movie.genre_ids || []).some((id) => [18, 53, 28].includes(id)));
     return {popular, family, discovery};
 }
+
+/** @param {string} id @param {AbortSignal} signal */
+export async function getMovieDetails(id, signal) {
+    if (!/^\d+$/.test(id)) throw new Error('Filme inválido.');
+    const token = process.env.EXPO_PUBLIC_TMDB_ACCESS_TOKEN;
+    if (!token) throw new Error('Não foi possível carregar o filme.');
+    const params = new URLSearchParams({language: 'pt-BR', append_to_response: 'credits,release_dates'});
+    const response = await fetch(`${API_URL}/movie/${id}?${params.toString()}`, {
+        signal, headers: {Authorization: `Bearer ${token}`, Accept: 'application/json'}
+    });
+    if (!response.ok) throw new Error('Não foi possível carregar o filme.');
+    const movie = await response.json();
+    if (!movie || typeof movie.title !== 'string') throw new Error('Dados do filme indisponíveis.');
+    return movie;
+}
