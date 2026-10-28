@@ -1,1 +1,1 @@
-export { default } from '../../screens/AccessScreen';
+export {default} from '../../screens/AccessScreen';

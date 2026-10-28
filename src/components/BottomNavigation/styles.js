@@ -1,0 +1,21 @@
+import {styled} from 'styled-components/native';
+
+export const Bar = styled.View`background-color: ${({theme}) => theme.colors.background};
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 12px;
+    padding-horizontal: 12px;`;
+export const Item = styled.Pressable`min-width: 48px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;`;
+export const Active = styled.View`flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    border-radius: 16px;
+    background-color: ${({theme}) => theme.colors.surface};
+    padding: 8px 12px;`;
+export const ActiveLabel = styled.Text`font-family: ${({theme}) => theme.fonts.medium};
+    color: ${({theme}) => theme.colors.primary};
+    font-size: 12px;`;

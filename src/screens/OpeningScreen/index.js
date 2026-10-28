@@ -1,13 +1,21 @@
-import { useEffect } from 'react';
-import { router } from 'expo-router';
+import {useEffect} from 'react';
+import {router} from 'expo-router';
 import BrandLogo from '../../components/BrandLogo';
-import { Container } from './styles';
+import {getSession} from '../../services/authService';
+import {Container} from './styles';
 
 export default function OpeningScreen() {
-  useEffect(() => {
-    const timeout = setTimeout(() => router.replace('/acesso'), 2000);
-    return () => clearTimeout(timeout);
-  }, []);
+    useEffect(() => {
+        let active = true;
+        const timeout = setTimeout(async () => {
+            const session = await getSession();
+            if (active) router.replace(session ? '/home' : '/acesso');
+        }, 2000);
+        return () => {
+            active = false;
+            clearTimeout(timeout);
+        };
+    }, []);
 
-  return <Container><BrandLogo /></Container>;
+    return <Container><BrandLogo/></Container>;
 }

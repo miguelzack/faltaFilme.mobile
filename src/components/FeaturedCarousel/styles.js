@@ -1,0 +1,25 @@
+import {styled} from 'styled-components/native';
+
+export const Slide = styled.Pressable`align-items: center;
+    gap: 10px;`;
+export const ImageFrame = styled.View`height: 190px;
+    width: 100%;
+    background-color: ${({theme}) => theme.colors.input};
+    border-radius: 16px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;`;
+export const Caption = styled.Text`font-family: ${({theme}) => theme.fonts.semibold};
+    color: ${({theme}) => theme.colors.text};
+    font-size: 16px;
+    text-align: center;`;
+export const Fallback = styled.Text`font-family: ${({theme}) => theme.fonts.regular};
+    color: ${({theme}) => theme.colors.textSecondary};
+    font-size: 12px;`;
+export const Dots = styled.View`flex-direction: row;
+    justify-content: center;
+    gap: 6px;
+    margin-top: -14px;`;
+export const Dot = styled.View`height: 8px;
+    border-radius: 4px;
+    background-color: ${({theme}) => theme.colors.primary};`;

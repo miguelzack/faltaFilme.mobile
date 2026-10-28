@@ -1,0 +1,20 @@
+import {styled} from 'styled-components/native';
+
+export const Section = styled.View`width: 100%;
+    gap: 12px;`;
+export const Heading = styled.Text`color: ${({theme}) => theme.colors.text};
+    font-family: ${({theme}) => theme.fonts.semibold};
+    font-size: 16px;`;
+export const Chips = styled.View`flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;`;
+export const Chip = styled.Pressable`border-radius: 16px;
+    padding: 8px 12px;
+    background-color: #252836;`;
+export const ChipText = styled.Text`color: ${({theme}) => theme.colors.lightGrey};
+    font-family: ${({theme}) => theme.fonts.medium};
+    font-size: 12px;`;
+export const Empty = styled.Text`color: ${({theme}) => theme.colors.textSecondary};
+    font-family: ${({theme}) => theme.fonts.regular};
+    font-size: 13px;
+    padding: 12px 0;`;
