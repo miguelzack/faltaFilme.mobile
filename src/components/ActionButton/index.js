@@ -1,15 +1,13 @@
 import {Button, Label} from './styles';
-import {useTheme} from 'styled-components/native';
 
-/** @param {{ label: string, onPress: () => void, darkText?: boolean }} props */
-export default function ActionButton({label, onPress, darkText = false}) {
-    const theme = useTheme();
+/** @param {{ label: string, onPress: () => void }} props */
+export default function ActionButton({label, onPress}) {
     return (<Button
         accessibilityRole="button"
         accessibilityLabel={label}
         onPress={onPress}
         style={({pressed}) => ({opacity: pressed ? 0.8 : 1})}
     >
-        <Label style={darkText ? {color: theme.colors.background} : undefined}>{label}</Label>
+        <Label>{label}</Label>
     </Button>);
 }

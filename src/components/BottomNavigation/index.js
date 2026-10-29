@@ -5,11 +5,11 @@ import TicketsIcon from '../../assets/icons/TicketsIcon';
 import PersonIcon from '../../assets/icons/PersonIcon';
 import {Active, ActiveLabel, Bar, Item} from './styles';
 
-/** @param {{ onUnavailable: (name: string) => void, onHomePress?: () => void }} props */
-export default function BottomNavigation({onUnavailable, onHomePress}) {
+/** @param {{ onUnavailable: (name: string) => void }} props */
+export default function BottomNavigation({onUnavailable}) {
     const insets = useSafeAreaInsets();
     return (<Bar style={{paddingBottom: Math.max(insets.bottom, 12)}}>
-        <Item accessibilityRole="button" accessibilityLabel="Início" onPress={onHomePress}
+        <Item accessibilityRole="button" accessibilityLabel="Início"
               accessibilityState={{selected: true}}><Active><HomeIcon/><ActiveLabel>Início</ActiveLabel></Active></Item>
         <Item accessibilityRole="button" accessibilityLabel="Pesquisa"
               onPress={() => onUnavailable('Pesquisa')}><SearchIcon/></Item>

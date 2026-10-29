@@ -1,5 +1,4 @@
 import {useCallback, useEffect, useState} from 'react';
-import {router} from 'expo-router';
 import {ActivityIndicator, Alert} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useTheme} from 'styled-components/native';
@@ -39,9 +38,7 @@ export default function HomeScreen() {
     }, [attempt]);
 
     const unavailable = useCallback((/** @type {string} */ name) => Alert.alert(name, 'Em breve.'), []);
-    const openMovie = useCallback((/** @type {import('../../services/movieService').Movie} */ movie) => {
-        router.push({pathname: '/filme/[id]', params: {id: String(movie.id)}});
-    }, []);
+    const openMovie = useCallback(() => unavailable('Detalhes do filme'), [unavailable]);
 
     return (<Root>
         <Scroll contentContainerStyle={{paddingTop: Math.max(insets.top, 24), paddingBottom: 32}}>
