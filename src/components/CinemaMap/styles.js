@@ -1,0 +1,24 @@
+import {styled} from 'styled-components/native';
+
+export const Wrapper = styled.View`height: 220px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: ${({theme}) => theme.colors.background};`;
+export const Attribution = styled.Text`position: absolute;
+    left: 8px;
+    bottom: 8px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333333;
+    font-size: 10px;`;
+export const MapButton = styled.Pressable`position: absolute;
+    right: 8px;
+    bottom: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: ${({theme}) => theme.colors.primary};`;
+export const MapButtonText = styled.Text`font-family: ${({theme}) => theme.fonts.medium};
+    font-size: 12px;
+    color: ${({theme}) => theme.colors.text};`;
