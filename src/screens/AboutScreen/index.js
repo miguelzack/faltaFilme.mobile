@@ -5,10 +5,10 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import BottomNavigation from '../../components/BottomNavigation';
 import CinemaMap from '../../components/CinemaMap';
 import {
-    Card, Content, Header, HeaderSubtitle, HeaderTitle, Root, Scroll
+    Card, Content, Header, HeaderSubtitle, HeaderTitle, Root, Scroll,
+    CardAddress, CardHint, CardTitle, LogoutButton, LogoutText, Section, SectionText, SectionTitle
 } from './styles';
 
-// Troque pelos dados reais do cinema
 const CINEMA = {
     title: 'FaltaFilme',
     address: 'Endereço do cinema',
@@ -36,6 +36,26 @@ export default function AboutScreen() {
                     <HeaderTitle>Sobre nós</HeaderTitle>
                     <HeaderSubtitle>Conheça o cinema FaltaFilme</HeaderSubtitle>
                 </Header>
+
+                <Card>
+                    <CardTitle>Localização</CardTitle>
+                    <CardAddress>{CINEMA.address}</CardAddress>
+                    <CardHint>Veja como chegar ao nosso cinema.</CardHint>
+                    <CinemaMap latitude={CINEMA.latitude} longitude={CINEMA.longitude} title={CINEMA.title}/>
+                </Card>
+
+                <Section>
+                    <SectionTitle>Sobre o cinema</SectionTitle>
+                    <SectionText>
+                        O FaltaFilme é o seu cinema para aproveitar grandes histórias na tela. Escolha uma sessão,
+                        reúna quem você gosta e viva esse momento com a gente.
+                    </SectionText>
+                </Section>
+
+                <LogoutButton accessibilityRole="button" accessibilityLabel="Sair da conta"
+                              onPress={() => router.replace('/acesso')}>
+                    <LogoutText>Sair da conta</LogoutText>
+                </LogoutButton>
             </Content>
         </Scroll>
         <BottomNavigation onUnavailable={unavailable}/>
