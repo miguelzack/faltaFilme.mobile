@@ -10,10 +10,10 @@ import {
 } from './styles';
 
 const CINEMA = {
-    title: 'FaltaFilme',
-    address: 'Endereço do cinema',
-    latitude: -23.55052,
-    longitude: -46.633308,
+    title: 'SENAI Suíço-Brasileira',
+    address: 'Rua Bento Branco de Andrade Filho, 379 - Santo Amaro, São Paulo/SP - CEP 04757-000',
+    latitude: -23.6555,
+    longitude: -46.7095,
 };
 
 export default function AboutScreen() {
